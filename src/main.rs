@@ -229,7 +229,7 @@ fn main() -> Result<()> {
         let mut stmt = anon_places.prepare("
             SELECT name FROM sqlite_master
             WHERE type = 'table'
-              AND name NOT IN ('sqlite_sequence', 'sqlite_stat1')
+              AND name NOT IN ('sqlite_sequence', 'sqlite_stat1', 'sqlite_master')
         ")?;
         let mut rows = stmt.query(&[])?;
         let mut tables = vec![];
